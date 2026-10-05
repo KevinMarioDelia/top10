@@ -49,6 +49,10 @@ const list = document.getElementById("list");
                 const pnative = document.createElement("p");
                 pnative.textContent = anime.title.native;
                 list.appendChild(pnative);
+
+                const image = document.createElement("img");
+                image.src = anime.coverImage.large;
+                list.appendChild(image);
                 
                 const description = document.createElement("p");
                 description.textContent = anime.description;
