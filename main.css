@@ -3,6 +3,28 @@ body{
     color: #CFCFCF;
     text-align: center;
     font-family: monospace;
+}
 
+#list{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: large;
+}
 
+.title{
+    font-weight: bold;
+    font-size: larger;
+    margin: 4px 0;
+}
+
+.card{
+    border-color: #CFCFCF;
+    border-width: 1px;
+    border-style: dashed;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.desctext{
+    text-align: left;
 }

@@ -38,26 +38,34 @@ const list = document.getElementById("list");
             })
             .then(function (result) {
                 result.data.Page.media.forEach(function (anime) {
+
+                const card = document.createElement("div");
+                card.className = "card";
+
                 const penglish = document.createElement("p");
                 penglish.textContent = anime.title.english;
-                list.appendChild(penglish);
+                card.appendChild(penglish);
+                penglish.className = "title"; //css styling
 
                 const promaji = document.createElement("p");
                 promaji.textContent = anime.title.romaji;
-                list.appendChild(promaji);
+                card.appendChild(promaji);
+                promaji.className = "title"; //css styling
 
                 const pnative = document.createElement("p");
                 pnative.textContent = anime.title.native;
-                list.appendChild(pnative);
+                card.appendChild(pnative);
+                pnative.className = "title"; //css styling
 
                 const image = document.createElement("img");
                 image.src = anime.coverImage.large;
-                list.appendChild(image);
+                card.appendChild(image);
                 
                 const description = document.createElement("p");
-                description.textContent = anime.description;
-                list.appendChild(description);
-
+                description.innerHTML = anime.description;
+                card.appendChild(description);
+                
+                list.appendChild(card);
 });
             });
             
