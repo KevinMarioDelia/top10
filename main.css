@@ -1,6 +1,6 @@
 body{
-    background-color: black;
-    color: #CFCFCF;
+    background-color: rgb(41, 41, 41);
+    color: #c2c2c2;
     text-align: center;
     font-family: monospace;
 }
@@ -20,11 +20,9 @@ body{
 .card{
     border-color: #CFCFCF;
     border-width: 1px;
-    border-style: dashed;
     margin-bottom: 10px;
     padding: 10px;
+    background-color: black;
+    border-radius: 30px;
 }
 
-.desctext{
-    text-align: left;
-}
