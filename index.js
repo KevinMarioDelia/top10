@@ -39,7 +39,9 @@ const list = document.getElementById("list");
             .then(function (result) {
                 result.data.Page.media.forEach(function (anime, rank) {
 
-                const card = document.createElement("div");
+                const card = document.createElement("a");
+                card.href = anime.siteUrl;
+                card.target = "_blank";
                 card.className = "card";
 
                 const boxrank = document.createElement("div");

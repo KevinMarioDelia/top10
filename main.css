@@ -36,6 +36,9 @@ body{
     background-color: black;
     border-radius: 30px;
     transition: 0.5s;
+    display: block;
+    color: inherit;
+    text-decoration: none;
 }
 
 @media (hover: hover) {
