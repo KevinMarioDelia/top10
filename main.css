@@ -6,6 +6,14 @@ body{
     font-family: monospace;
 }
 
+.normtitle{
+    color: black;
+}
+
+.normtext{
+    color: black;
+}
+
 #list{
     max-width: 800px;
     margin: 0 auto;
@@ -13,7 +21,6 @@ body{
 }
 
 .title{
-    font-weight: bold;
     font-size: larger;
     margin: 10px 0;
 }
