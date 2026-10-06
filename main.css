@@ -9,7 +9,14 @@ body{
 .normtitle{
     color: black;
     font-size: 60px;
-    text-decoration: underline;
+    white-space: nowrap;
+    margin: 0;
+    line-height: 1;
+    width: max-content;
+    animation-name: banneranimation;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .normtext{
@@ -78,5 +85,15 @@ body{
 
 .banner{
     background-color: violet;
+    overflow: hidden;
+}
 
+@keyframes banneranimation {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: -50% 0;
+  }
 }
