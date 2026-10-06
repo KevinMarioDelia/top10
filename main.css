@@ -50,6 +50,7 @@ body{
     text-decoration: none;
     animation-duration: 1.5s;
     animation-name: slide-in;
+    position: relative;
 }
 
 @keyframes slide-in {
@@ -68,6 +69,7 @@ body{
 .card:hover {
     transform: scale(1.2);
     box-shadow: 0 0 50px violet;
+    z-index: 1;
 }}
 
 .rankstyle{
