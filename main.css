@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(41, 41, 41);
+    background: #2b2b2b;
+    background: linear-gradient(0deg, rgba(43, 43, 43, 1) 0%, rgba(92, 92, 92, 1) 100%);
     color: #c2c2c2;
     text-align: center;
     font-family: monospace;
@@ -24,5 +25,10 @@ body{
     padding: 10px;
     background-color: black;
     border-radius: 30px;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 50px violet;
 }
 
