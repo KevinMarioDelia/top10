@@ -4,6 +4,8 @@ body{
     color: #c2c2c2;
     text-align: center;
     font-family: monospace;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .normtitle{
@@ -14,7 +16,7 @@ body{
     line-height: 1;
     width: max-content;
     animation-name: banneranimation;
-    animation-duration: 20s;
+    animation-duration: 25s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -46,9 +48,8 @@ body{
     display: block;
     color: inherit;
     text-decoration: none;
-
-      animation-duration: 1.5s;
-  animation-name: slide-in;
+    animation-duration: 1.5s;
+    animation-name: slide-in;
 }
 
 @keyframes slide-in {
@@ -86,6 +87,7 @@ body{
 .banner{
     background-color: violet;
     overflow: hidden;
+    box-shadow: 0px -7px 15px 15px black;
 }
 
 @keyframes banneranimation {
