@@ -1,112 +1,133 @@
-body{
+/* ---------- page ---------- */
+
+body {
     background: #4d4d4d;
-    color: #c2c2c2;
+    color: #c2c2c2;          /* text color */
     text-align: center;
     font-family: monospace;
-    margin: 0;
+    margin: 0;               /* remove the browser's default space around the page */
     min-height: 100vh;
 }
 
-.normtitle{
+
+/* ---------- banner (the scrolling TOP 10 strip) ---------- */
+
+.banner {
+    background-color: violet;
+    overflow: hidden;        /* cut off the text that sticks out of the strip */
+    box-shadow: 0px -7px 15px 15px black;  /* big spread so the shadow reaches both screen edges */
+}
+
+/* the heading holds 40 copies of the text in one long line.
+   it slides left by half its own width and then starts again.
+   the second half looks like the first, so the restart is not visible */
+.normtitle {
     color: black;
     font-size: 60px;
-    white-space: nowrap;
+    white-space: nowrap;     /* never wrap, keep everything on one line */
     margin: 0;
     line-height: 1;
-    width: max-content;
+    width: max-content;      /* as wide as all the text together */
     animation-name: banneranimation;
     animation-duration: 25s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-timing-function: linear;  /* same speed the whole time */
 }
 
-.normtext{
+@keyframes banneranimation {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: -50% 0;
+    }
+}
+
+.normtext {
     color: black;
     font-size: 20px;
 }
 
-#list{
+
+/* ---------- hidden until the cards are loaded ---------- */
+
+/* while the list is still empty, hide the lower banner and the intro text */
+#list:empty ~ .banner {
+    display: none;
+}
+
+body:has(#list:empty) .normtext {
+    display: none;
+}
+
+
+/* ---------- list of cards ---------- */
+
+#list {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto;          /* centers the list on the page */
     font-size: large;
 }
 
-.title{
-    font-size: larger;
-    margin: 10px 0;
-}
-
-.card{
-    border-color: #CFCFCF;
+.card {
+    border-color: #CFCFCF;   /* no border-style is set, so no border is shown */
     border-width: 1px;
     margin-bottom: 10px;
     padding: 20px;
     background-color: black;
     border-radius: 30px;
-    transition: 0.5s;
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    animation-duration: 1.5s;
+    display: block;          /* the card is a link, block makes it behave like a box again */
+    color: inherit;          /* no blue link text */
+    text-decoration: none;   /* no underline */
+    position: relative;      /* needed so z-index works on hover */
+    transition: 0.5s;        /* smooth grow and shrink on hover */
     animation-name: slide-in;
-    position: relative;
+    animation-duration: 1.5s;
 }
 
+/* the cards rise up from below the screen when they appear */
 @keyframes slide-in {
-  from {
-    translate: 0 100vh;
-    scale: 100% 1;
-  }
+    from {
+        translate: 0 100vh;
+        scale: 100% 1;
+    }
 
-  to {
-    translate: 0 0;
-    scale: 100% 1;
-  }
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
 }
 
+/* hover effect only on devices with a mouse, on a phone a tap would trigger it */
 @media (hover: hover) {
-.card:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 50px violet;
-    z-index: 1;
-}}
+    .card:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 50px violet;
+        z-index: 1;          /* the hovered card lies on top of its neighbours */
+    }
+}
 
-.rankstyle{
+
+/* ---------- inside a card ---------- */
+
+/* top row: rank on the left, titles on the right */
+.boxrank {
+    display: flex;
+}
+
+.boxtitle {
+    flex-grow: 1;            /* take all the space that is left, keeps the titles centered */
+}
+
+.rankstyle {
     font-weight: bold;
     font-size: 25px;
     margin: 10px 0;
     color: violet;
 }
 
-.boxrank{
-    display: flex;
-}
-
-.boxtitle{
-    flex-grow: 1;
-}
-
-.banner{
-    background-color: violet;
-    overflow: hidden;
-    box-shadow: 0px -7px 15px 15px black;
-}
-
-@keyframes banneranimation {
-  from {
-    translate: 0 0;
-  }
-
-  to {
-    translate: -50% 0;
-  }
-}
-
-/* hide everything below the top banner until the cards are added to the list */
-#list:empty ~ .banner{
-    display: none;
-}
-
-body:has(#list:empty) .normtext{
-    display: none;
+.title {
+    font-size: larger;
+    margin: 10px 0;
 }
