@@ -8,10 +8,13 @@ body{
 
 .normtitle{
     color: black;
+    font-size: 60px;
+    text-decoration: underline;
 }
 
 .normtext{
     color: black;
+    font-size: 20px;
 }
 
 #list{
@@ -35,10 +38,11 @@ body{
     transition: 0.5s;
 }
 
+@media (hover: hover) {
 .card:hover {
     transform: scale(1.2);
     box-shadow: 0 0 50px violet;
-}
+}}
 
 .rankstyle{
     font-weight: bold;
