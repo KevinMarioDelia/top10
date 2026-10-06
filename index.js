@@ -37,25 +37,39 @@ const list = document.getElementById("list");
                 return response.json();
             })
             .then(function (result) {
-                result.data.Page.media.forEach(function (anime) {
+                result.data.Page.media.forEach(function (anime, rank) {
 
                 const card = document.createElement("div");
                 card.className = "card";
 
+                const boxrank = document.createElement("div");
+                boxrank.className = "boxrank";
+
+                const boxtitle = document.createElement("div");
+                boxtitle.className = "boxtitle";
+
+                const prank = document.createElement("p");
+                prank.textContent = rank+1+".";
+                boxrank.appendChild(prank);
+                prank.className = "rankstyle";
+
                 const penglish = document.createElement("p");
                 penglish.textContent = anime.title.english;
-                card.appendChild(penglish);
+                boxtitle.appendChild(penglish);
                 penglish.className = "title"; //css styling
 
                 const promaji = document.createElement("p");
                 promaji.textContent = anime.title.romaji;
-                card.appendChild(promaji);
+                boxtitle.appendChild(promaji);
                 promaji.className = "title"; //css styling
 
                 const pnative = document.createElement("p");
                 pnative.textContent = anime.title.native;
-                card.appendChild(pnative);
+                boxtitle.appendChild(pnative);
                 pnative.className = "title"; //css styling
+
+                boxrank.appendChild(boxtitle);
+                card.appendChild(boxrank);
 
                 const image = document.createElement("img");
                 image.src = anime.coverImage.large;
